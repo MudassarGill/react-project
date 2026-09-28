@@ -5,5 +5,4 @@ function New() {
     </div>
   )
 }
-
 export default New
