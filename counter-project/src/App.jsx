@@ -15,9 +15,13 @@ function App() {
     onClick={() => {
       counter++;
       console.log(counter);
-    }
->ADD VALUE</button>
-    <button>REMOVE VALUE</button>
+    }}>ADD VALUE</button>
+    <button
+    onClick={() => {
+      counter--;
+      console.log(counter);
+    }}
+    >REMOVE VALUE</button>
     </>
   )
 }
