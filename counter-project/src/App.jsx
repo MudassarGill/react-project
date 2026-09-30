@@ -6,22 +6,22 @@ import './App.css'
 
 function App() {
   let counter = 0;
+  let [count, setCount] = useState(counter);
+  const Addvalue = () => {
+    setCount(count + 1);
+  }
+  const Removevalue = () => {
+    setCount(count - 1);
+    console.log(count);
+  }
   
   return (
     <>
     <h1>Hello, Vite + React!</h1>
-    <h2>Counter: {counter}</h2>
-    <button
-    onClick={() => {
-      counter++;
-      console.log(counter);
-    }}>ADD VALUE</button>
-    <button
-    onClick={() => {
-      counter--;
-      console.log(counter);
-    }}
-    >REMOVE VALUE</button>
+    <h2>Counter: {count}</h2>
+    <button onClick={Addvalue}>ADD VALUE</button>
+    <br />
+    <button onClick={Removevalue}>REMOVE VALUE</button>
     </>
   )
 }
