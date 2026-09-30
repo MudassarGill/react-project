@@ -11,8 +11,9 @@ function App() {
     setCount(count + 1);
   }
   const Removevalue = () => {
-    setCount(count - 1);
-    console.log(count);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   }
   
   return (
