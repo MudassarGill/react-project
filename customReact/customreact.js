@@ -5,10 +5,8 @@ function customrender(reactElement, container) {
         if (prop ==='children') continue;
         domElement.setAttribute(prop, reactElement.props[prop]);
 }
-container.appendChild(domElement);
+container.appendChild(domElement); 
 }
-
-
 const reactElement ={
     type: 'a',
     props: {
@@ -17,6 +15,5 @@ const reactElement ={
     }, 
     children: 'Click me to go to Google'
 }
-
 const maincontainer = document.getElementById('root');
 customrender(reactElement, maincontainer);
