@@ -9,13 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-black-500 to-orange-500 flex justify-between w-full items-center">
-       <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </div>
+      
     </>
   )
 }
