@@ -1,6 +1,6 @@
 import React from 'react'
 
-const card = () => {
+const Card = () => {
   return (
     <div className="bg-gradient-to-r from-black-500 to-orange-500 flex  w-full items-center">
         <div className="flex items-center gap-2">
@@ -15,4 +15,4 @@ const card = () => {
   )
 }
 
-export default card
+export default Card
