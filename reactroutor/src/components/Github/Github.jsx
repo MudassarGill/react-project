@@ -1,17 +1,39 @@
-import React, { use } from 'react'
+
 import { useState, useEffect } from 'react'
 
 function Github() {
-    const [data, setFollowers] = useState([]);
-    useEffect(() => {
-        fetch('https://api.github.com/users/MudassarGill/followers')
-        .then(response => response.json())
-        .then(data => {
-            setFollowers(data);
-        });
-    }, [])
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/MudassarGill')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('GitHub user not found')
+        }
+        return response.json()
+      })
+      .then(user => {
+        setData(user)
+      })
+      .catch(error => {
+        console.error('API Error:', error)
+      })
+  }, [])
+
+  if (!data) {
+    return <p className="text-center">Loading profile...</p>
+  }
+
   return (
-    <div className='text-center m-4 bg-gray-500 text-white p-4 text-3xl' >Github Followers : {data.length}</div>
+    <div className="m-4 bg-gray-500 p-4 text-center text-3xl text-white">
+      <h2>GitHub Followers: {data.followers}</h2>
+
+      <img
+        className="mx-auto mt-4 w-32 rounded-full"
+        src={data.avatar_url}
+        alt="GitHub Profile"
+      />
+    </div>
   )
 }
 
