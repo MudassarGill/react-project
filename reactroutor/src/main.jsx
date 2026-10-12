@@ -28,6 +28,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
        {
+        loader: async () => {
+          const response = await fetch('https://api.github.com/users/MudassarGill');
+          if (!response.ok) {
+            throw new Error('GitHub user not found');
+          }
+          const userData = await response.json();
+          return userData;
+        },
         path: 'github',
         element: <Github />,
       },

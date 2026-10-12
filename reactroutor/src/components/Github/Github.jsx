@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 function Github() {
   const [data, setData] = useState(null)
@@ -38,3 +39,17 @@ function Github() {
 }
 
 export default Github
+
+export const githubLoader = async () => {
+  try {
+    const response = await fetch('https://api.github.com/users/MudassarGill')
+    if (!response.ok) {
+      throw new Error('GitHub user not found')
+    }
+    const userData = await response.json()
+    return userData
+  } catch (error) {
+    console.error('API Error:', error)
+    throw error
+  }
+}
