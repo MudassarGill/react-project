@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Header from './components/./Header/Header.jsx'
+import Header from "./components/Header/Header.jsx";
 import './App.css'
 
 function App() {
@@ -7,8 +7,7 @@ function App() {
 
   return (
     <>
-     <h1 className='bg-orange-500 p-4'>Vite + React</h1>
-     <Header />
+
     </>
   )
 }
