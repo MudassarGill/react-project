@@ -1,27 +1,39 @@
-import React,{usestate} from 'react'
+
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../features/todo/TodoSlice'
 
 function Todoes() {
-    const [input, setinput] = usestate('')
+    const [input, setinput] = useState('')
+    const dispatch = useDispatch()
 
     const addTodoHandler = (e) => {
         e.preventDefault()
         dispatch(addTodo(input))
         setinput('')
-        
     }
-  return (
-    // form data
-    <form onSubmit={addTodoHandler} className='flex justify-center items-center gap-2'>
-        <input type="text" placeholder='Add Todo' className='border-2 border-gray-400 rounded-md p-2 w-1/2' 
-        value={input} onChange={(e) => setinput(e.target.value)}
-        />
-        <button type='submit' className='bg-blue-500 text-white p-2 rounded-md'>Add</button>
 
+    return (
+        <form
+            onSubmit={addTodoHandler}
+            className="flex justify-center items-center gap-2"
+        >
+            <input
+                type="text"
+                placeholder="Add Todo"
+                className="border-2 border-gray-400 rounded-md p-2 w-1/2"
+                value={input}
+                onChange={(e) => setinput(e.target.value)}
+            />
 
-    </form>
-  )
+            <button
+                type="submit"
+                className="bg-blue-500 text-white p-2 rounded-md"
+            >
+                Add
+            </button>
+        </form>
+    )
 }
 
 export default Todoes
