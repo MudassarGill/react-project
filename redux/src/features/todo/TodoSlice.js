@@ -26,8 +26,8 @@ export const todoSlice = createSlice({
                 existingTodo.text = text
             }
         },
-        deleteAllTodos: (state) => {
-            state.todos = []
-        }
+
     }
 })
+export const {addTodo,removeTodo,editTodo} = todoSlice.actions
+export default todoSlice.reducer
