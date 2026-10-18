@@ -1,8 +1,16 @@
 import React,{usestate} from 'react'
 import { useDispatch } from 'react-redux'
+import { addTodo } from '../features/todo/TodoSlice'
 
 function Todoes() {
-    const [input, setinput] = useState('')
+    const [input, setinput] = usestate('')
+
+    const addTodoHandler = (e) => {
+        e.preventDefault()
+        dispatch(addTodo(input))
+        setinput('')
+        
+    }
   return (
     // form data
     <form onSubmit={addTodoHandler} className='flex justify-center items-center gap-2'>
